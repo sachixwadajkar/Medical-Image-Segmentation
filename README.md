@@ -266,8 +266,9 @@ python src/inference.py --image data/val/full_images/TCGA-49-4488-01Z-00-DX1.png
 ### 6. Interactive Streamlit Web Application
 Launch the interactive web UI:
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
+*(Or `streamlit run app.py` if your Python `Scripts/` directory is in your system PATH).*
 
 ---
 
