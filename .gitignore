@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch checkpoints and model weights
+*.pt
+*.pth
+*.onnx
+checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Data and large image archives
+data/raw/*
+!data/raw/.gitkeep
+data/train/*
+!data/train/.gitkeep
+data/val/*
+!data/val/.gitkeep
+data/test/*
+!data/test/.gitkeep
+data/**/*.png
+data/**/*.tif
+data/**/*.tiff
+data/**/*.xml
+data/**/*.zip
+
+# Outputs (exclude generated images/CSVs from git tracking)
+outputs/predictions/*
+!outputs/predictions/.gitkeep
+outputs/plots/*
+!outputs/plots/.gitkeep
+outputs/*.csv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Pytest and coverage cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini

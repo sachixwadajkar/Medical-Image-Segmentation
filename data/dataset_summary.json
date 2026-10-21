@@ -1,0 +1,32 @@
+{
+  "patch_size": 256,
+  "stride": 248,
+  "random_seed": 42,
+  "val_ratio": 0.2,
+  "splits": {
+    "train": {
+      "source_images": 29,
+      "patient_count": 29,
+      "total_annotated_nuclei": 18649,
+      "total_patches_extracted": 464,
+      "empty_mask_patches": 0,
+      "foreground_nuclei_pixel_ratio": 27.12
+    },
+    "val": {
+      "source_images": 8,
+      "patient_count": 8,
+      "total_annotated_nuclei": 5486,
+      "total_patches_extracted": 128,
+      "empty_mask_patches": 0,
+      "foreground_nuclei_pixel_ratio": 25.4
+    },
+    "test": {
+      "source_images": 14,
+      "patient_count": 14,
+      "total_annotated_nuclei": 6697,
+      "total_patches_extracted": 224,
+      "empty_mask_patches": 0,
+      "foreground_nuclei_pixel_ratio": 21.69
+    }
+  }
+}
