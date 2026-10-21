@@ -114,15 +114,19 @@ def main():
     col_input, col_preset = st.columns([2, 1])
 
     with col_preset:
-        preset_options = ["None (Upload my own)"]
-        sample_files = []
-        if os.path.exists("data/val/images"):
-            sample_files = sorted(os.listdir("data/val/images"))[:5]
+        preset_dict = {}
+        if os.path.exists("data/val/full_images"):
+            for f in sorted(os.listdir("data/val/full_images"))[:4]:
+                preset_dict[f"🔬 [Full Slide 1000x1000] {f}"] = os.path.join("data/val/full_images", f)
         if os.path.exists("data/test/full_images"):
-            sample_files += sorted(os.listdir("data/test/full_images"))[:3]
+            for f in sorted(os.listdir("data/test/full_images"))[:4]:
+                preset_dict[f"🧪 [Test Set 1000x1000] {f}"] = os.path.join("data/test/full_images", f)
+        if os.path.exists("data/val/images"):
+            for f in sorted(os.listdir("data/val/images"))[:4]:
+                preset_dict[f"🧩 [Patch 256x256] {f}"] = os.path.join("data/val/images", f)
 
-        preset_options.extend(sample_files)
-        selected_preset = st.selectbox("Or choose a validation sample:", options=preset_options)
+        options = ["None (Upload my own)"] + list(preset_dict.keys())
+        selected_preset = st.selectbox("Or choose a sample to test immediately:", options=options)
 
     with col_input:
         uploaded_file = st.file_uploader(
@@ -137,15 +141,10 @@ def main():
     if uploaded_file is not None:
         pil_image = Image.open(uploaded_file).convert("RGB")
         image_name = uploaded_file.name
-    elif selected_preset != "None (Upload my own)":
-        image_name = selected_preset
-        preset_path = None
-        for candidate_dir in ["data/val/images", "data/test/full_images", "data/train/images"]:
-            p = os.path.join(candidate_dir, selected_preset)
-            if os.path.exists(p):
-                preset_path = p
-                break
-        if preset_path:
+    elif selected_preset != "None (Upload my own)" and selected_preset in preset_dict:
+        preset_path = preset_dict[selected_preset]
+        image_name = os.path.basename(preset_path)
+        if os.path.exists(preset_path):
             pil_image = Image.open(preset_path).convert("RGB")
 
     if pil_image is None:
