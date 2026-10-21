@@ -60,15 +60,6 @@ st.markdown(
         border-left: 4px solid #3B82F6;
         box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
-    .disclaimer-box {
-        background-color: #FEF3C7;
-        border-left: 4px solid #F59E0B;
-        padding: 12px 16px;
-        border-radius: 6px;
-        color: #92400E;
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -89,17 +80,6 @@ def main():
     st.markdown('<div class="main-header">🔬 Digital Pathology Nuclei Segmentation</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="sub-header">PyTorch U-Net for Automated Nuclear Boundary Delineation in Multi-Organ H&E Histopathology</div>',
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <div class="disclaimer-box">
-            <strong>⚠️ Educational & Research Prototype Notice:</strong> This software is engineered strictly
-            for research and portfolio demonstration (aligned with AIRA Matrix digital pathology competencies).
-            It is not certified or validated for clinical patient diagnosis or treatment planning.
-        </div>
-        """,
         unsafe_allow_html=True,
     )
 
